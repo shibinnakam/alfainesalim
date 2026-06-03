@@ -1,3 +1,13 @@
+// Handle Preloader
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        setTimeout(() => preloader.style.display = 'none', 600);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const productSlider = document.getElementById('productSlider');
@@ -186,6 +196,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeProductModal();
+        });
+    }
+
+    // Carousel Navigation Logic
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+    const scrollRightBtn = document.getElementById('scrollRightBtn');
+    const scrollAmount = 290;
+
+    function scrollToElCenter(el) {
+        const containerRect = sliderContainer.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        const targetLeft = sliderContainer.scrollLeft + (elRect.left - containerRect.left) - (containerRect.width / 2) + (el.offsetWidth / 2);
+        sliderContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    }
+
+    if (scrollLeftBtn && scrollRightBtn && sliderContainer) {
+        scrollLeftBtn.addEventListener('click', () => {
+            const focused = document.querySelector('.product-card.focused');
+            if (focused && focused.previousElementSibling) {
+                scrollToElCenter(focused.previousElementSibling);
+            } else {
+                sliderContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        });
+        
+        scrollRightBtn.addEventListener('click', () => {
+            const focused = document.querySelector('.product-card.focused');
+            if (focused && focused.nextElementSibling) {
+                scrollToElCenter(focused.nextElementSibling);
+            } else {
+                sliderContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
+
+        // Continuous Auto-scroll functionality
+        let isAnimating = false;
+        let isHovered = false;
+
+        function continuousScroll() {
+            if (!isAnimating && !isHovered) {
+                sliderContainer.scrollLeft += 1;
+                // If reached the end, snap back to start
+                if (sliderContainer.scrollLeft + sliderContainer.clientWidth >= sliderContainer.scrollWidth - 1) {
+                    sliderContainer.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(continuousScroll);
+        }
+        requestAnimationFrame(continuousScroll);
+
+        // Pause auto-scroll on hover
+        const carouselWrapper = document.querySelector('.products-carousel-wrapper');
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('mouseenter', () => isHovered = true);
+            carouselWrapper.addEventListener('mouseleave', () => isHovered = false);
+        }
+
+        // Add pause to click listeners
+        const originalLeftClick = scrollLeftBtn.onclick;
+        scrollLeftBtn.addEventListener('click', () => {
+            isAnimating = true;
+            setTimeout(() => isAnimating = false, 600);
+        });
+        scrollRightBtn.addEventListener('click', () => {
+            isAnimating = true;
+            setTimeout(() => isAnimating = false, 600);
         });
     }
 

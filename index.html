@@ -14,6 +14,11 @@
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="logo.jpeg" alt="Loading..." class="preloader-logo">
+    </div>
+
     <nav>
         <div class="logo">
             <a href="#home"><img src="logo.jpeg" alt="IndusViva Logo"></a>
@@ -56,6 +61,11 @@
                 <br>
                 <p>As your advisor, I am committed to helping you achieve a balanced lifestyle through science-backed
                     supplements and sustainable growth opportunities.</p>
+                
+                <div style="margin-top: 25px; padding: 15px 20px; background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--primary-color); border-radius: 4px; display: inline-block;">
+                    <span style="color: #444; font-size: 1.1rem;">Alfaine Service & Consultation:</span><br>
+                    <a href="tel:+917025446300" style="color: var(--primary-color); font-weight: 700; text-decoration: none; font-size: 1.4rem; display: inline-block; margin-top: 5px;">+91 7025446300</a>
+                </div>
             </div>
             <div class="about-image-wrapper animate">
                 <div class="curved-image-box">
@@ -69,33 +79,40 @@
         <h2 class="section-title">Core Product Portfolio</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #666;">IndusViva's scientific research
             and patented formulations represent the pinnacle of modern Ayurvedic wellness.</p>
-        <div class="products-slider-container">
-            <div class="products-slider" id="productSlider">
+        <div class="products-carousel-wrapper">
+            <button id="scrollLeftBtn" class="carousel-arrow left-arrow" aria-label="Previous Products">&lt;</button>
+            <div class="products-slider-container" id="sliderContainer">
+                <div class="products-slider" id="productSlider">
                 <!-- Original set -->
                 <div class="product-card" data-product="i-Pulse">
                     <img src="ipulse.jpeg" alt="i-Pulse">
                     <h3>i-Pulse</h3>
                     <p>Antioxidant-rich fruit blend for cellular health and immunity.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Coffee">
                     <img src="cofee.jpeg" alt="i-Coffee">
                     <h3>i-Coffee</h3>
                     <p>Herbal beverage formulated to support healthy blood sugar levels.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Slim">
                     <img src="islim.jpeg" alt="i-Slim">
                     <h3>i-Slim</h3>
                     <p>Natural supplements designed for effective weight management.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Care">
                     <img src="icare.jpeg" alt="i-Care">
                     <h3>i-Care</h3>
                     <p>Hormonal balance and active aging herbal formulation.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Glow">
                     <img src="i glow.jpeg" alt="i-Glow">
                     <h3>i-Glow</h3>
                     <p>Advanced supplements intended to enhance skin vitality.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
 
 
@@ -104,33 +121,41 @@
                     <img src="ipulse.jpeg" alt="i-Pulse">
                     <h3>i-Pulse</h3>
                     <p>Antioxidant-rich fruit blend for cellular health and immunity.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Coffee">
                     <img src="cofee.jpeg" alt="i-Coffee">
                     <h3>i-Coffee</h3>
                     <p>Herbal beverage formulated to support healthy blood sugar levels.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Slim">
                     <img src="islim.jpeg" alt="i-Slim">
                     <h3>i-Slim</h3>
                     <p>Natural supplements designed for effective weight management.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Care">
                     <img src="icare.jpeg" alt="i-Care">
                     <h3>i-Care</h3>
                     <p>Hormonal balance and active aging herbal formulation.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Glow">
                     <img src="i glow.jpeg" alt="i-Glow">
                     <h3>i-Glow</h3>
                     <p>Advanced supplements intended to enhance skin vitality.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
                 <div class="product-card" data-product="i-Charge">
                     <img src="ipulse.jpeg" alt="i-Charge" style="filter: hue-rotate(45deg);">
                     <h3>i-Charge</h3>
                     <p>Nutritional drinks for targeted stress relief and energy.</p>
+                    <a href="https://store.indusviva.com/?id=1182992&amp;token=MTE4Mjk5Mi8xNzQ1NDEyNjQ=" target="_blank" class="order-now-btn" onclick="event.stopPropagation()">Order Now</a>
                 </div>
             </div>
+        </div>
+        <button id="scrollRightBtn" class="carousel-arrow right-arrow" aria-label="Next Products">&gt;</button>
         </div>
         <div style="text-align: center; margin-top: 40px;">
             <p>For more details on ethnopharmacological research and ingredient patents, visit the <a
